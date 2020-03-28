@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>WebTimer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+function GetTime(){
+            var d = new Date ();
+           var d1 = new Date ( d );
+          
+           document.getElementById("t").innerHTML="Day = "+d.getDate()+"     Time = "+(12<d.getHours() ? d.getHours()-12 +":"+d.getMinutes()+"PM" :"0"+d.getHours()+":"+d.getMinutes()+"AM");
+           d1.setHours ( d1.getHours() + 9);
+
+
+           document.getElementById("t1").innerHTML="Day = "+d1.getDate()+"     Time = "+(12<d1.getHours() ? d1.getHours()-12 +":"+d1.getMinutes()+"PM" :"0"+d1.getHours()+":"+d1.getMinutes()+"AM") + " + 5 mins" +
+           " Day = "+d1.getDate()+"     Time = "+(12<d1.getHours() ? d1.getHours()-12 +":"+d1.getMinutes()+"PM" :"0"+d1.getHours()+":"+d1.getMinutes()+"AM");
+           d1.setMinutes ( d1.getMinutes() + 15);
+            document.getElementById("t2").innerHTML="Day = "+d1.getDate()+"     Time = "+(12<d1.getHours() ? d1.getHours()-12 +":"+d1.getMinutes()+"PM" :"0"+d1.getHours()+":"+d1.getMinutes()+"AM");
+           d1.setMinutes ( d1.getMinutes() + 15);
+            document.getElementById("t3").innerHTML="Day = "+d1.getDate()+"     Time = "+(12<d1.getHours() ? d1.getHours()-12 +":"+d1.getMinutes()+"PM" :"0"+d1.getHours()+":"+d1.getMinutes()+"AM");
+        }
+
+
+        $(document).ready(function(){
+  $("#st").click(function(){
+      $("#in").hide();
+    $(this).animate({"position": "relative","top":"80%","right":"100%","height":"0%","width":"64%","border-radius": "100%"});
+    $(this).animate({"position": "relative","top":"0%","right":"0%","height":"99%","width":"99%","border-radius": "0%","border" : "0px"},"slow");
+    setTimeout(() => {
+        $("#b").css("background-color","white");
+    }, 1000);
+    
+    setTimeout(() => {
+        $("#it1").css("display","block");
+        $("#it1").animate({"position": "absolute","right":"5%"},1100,'swing');
+        
+    }, 1100);
+    setTimeout(() => {
+        $("#ot1").css("display","block");
+        $("#ot1").animate({"position": "absolute","right":"5%"},1500,'swing');
+        
+    }, 1250);
+    setTimeout(() => {
+        $("#ot2").css("display","block");
+        $("#ot2").animate({"position": "absolute","right":"5%"},1700,'swing');
+        
+    }, 1350);
+    setTimeout(() => {
+        $("#ot3").css("display","block");
+        $("#ot3").animate({"position": "absolute","right":"5%"},1900,'swing');
+        
+    }, 1450);
+  });
+        });
+
+        </script>
+        <style>
+            .round-button {
+	width:25%;
+}
+             #st {
+                position: relative;
+                top : 45%;
+                right:-20%;
+                width: 58%;
+	            height:0%;
+	            padding-bottom: 58%;
+                border-radius: 50%;
+                background-color:white;
+                border: 2px solid  rgb(8, 117, 219);
+                 color:black;
+                font-size: 40px;
+                text-align: center;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+                #in{
+                    position: absolute;
+                    top : 20%;
+                    right: 45%;
+                }
+            #b{
+                background-color:rgb(8, 117, 219);  
+                
+            } 
+            #it1,#ot1,#ot2,#ot3{
+                position: absolute;
+                color:white;
+                font-size: 20px;
+                text-align: center;
+                display: none;
+            }
+            #it1{
+                position: absolute;
+                height: 10%;
+                width: 90%;
+                top :2%;
+                right: 95%;
+                background-color:rgb(8, 117, 219);
+                border-radius: 5px;
+            }
+            #ot1{
+                position: absolute;
+                height: 20%;
+                width: 90%;
+                top :25%;
+                right: 95%;
+                background-color:rgb(8, 117, 219);
+                border-radius: 5px;
+            }
+            #ot2{
+                position: absolute;
+                height: 12%;
+                width: 90%;
+                top :48%;
+                right: 95%;
+                background-color:rgb(8, 117, 219);
+                border-radius: 5px;
+            }
+            #ot3{
+                position: absolute;
+                height: 12%;
+                width: 90%;
+                top :63%;
+                right: 95%;
+                background-color:rgb(8, 117, 219);
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body id="b">
+        <div id="st" onClick="GetTime()">
+          <p id="in">IN</p>
+          
+          <diV id="it1">   
+            In Time :<p id="t">     
+        </diV>
+        <diV id="ot1"> 
+            Out Time 1 : <p id="t1"></p>
+        </diV>
+        <diV id="ot2">
+            Out Time 2 : <p id="t2"></p>
+        </diV>
+        <diV id="ot3">
+            Out Time 3 : <p id="t3"></p>
+        </diV>
+
+        </div>
+    
+         <!-- In Time :<p id="t"></p><br><br>
+        Out Time 1 : <p id="t1"></p><br><br>
+        Out Time 2 : <p id="t2"></p><br><br>
+        Out Time 3 : <p id="t3"></p>  -->
+        
+    </body>
+ </html>
