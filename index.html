@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
-function GetTime() {
+function GetTime(){
             var d = new Date ();
            var d1 = new Date ( d );
           
@@ -36,6 +36,11 @@ function GetTime() {
         
     }, 1100);
     setTimeout(() => {
+        $("#wt").css("display","block");
+        $("#wt").animate({"position": "absolute","right":"19%"},1200,'swing');
+        
+    }, 1100);
+    setTimeout(() => {
         $("#ot1").css("display","block");
         $("#ot1").animate({"position": "absolute","right":"5%"},1500,'swing');
         
@@ -51,6 +56,11 @@ function GetTime() {
         
     }, 1450);
   });
+//   setTimeout(() => {
+//         $("#wt").css("display","block");
+//         $("#wt").animate({"position": "absolute","right":"25%"},1200,'swing');
+        
+//     }, 1600);
         });
 
         </script>
@@ -80,9 +90,10 @@ function GetTime() {
                 }
             #b{
                 background-color:rgb(8, 117, 219);  
-                
+                font-family: "Comic Sans MS", cursive, sans-serif;
             } 
-            #it1,#ot1,#ot2,#ot3{
+            
+            #it1,#ot1,#ot2,#ot3,#wt{
                 position: absolute;
                 color:white;
                 font-size: 20px;
@@ -91,12 +102,22 @@ function GetTime() {
             }
             #it1{
                 position: absolute;
-                height: 10%;
+                height: 12%;
                 width: 90%;
                 top :2%;
                 right: 95%;
                 background-color:rgb(8, 117, 219);
                 border-radius: 5px;
+            }
+            #wt{
+                position: absolute;
+                height: 8%;
+                width: 60%;
+                top :15%;
+                right: 95%;
+                background-color:rgb(8, 117, 219);
+                border-radius: 5px;
+                font-size: 34px;
             }
             #ot1{
                 position: absolute;
@@ -130,10 +151,11 @@ function GetTime() {
     <body id="b">
         <div id="st" onClick="GetTime()">
           <p id="in">IN</p>
-          
+           
           <diV id="it1">   
             In Time :<p id="t">     
         </diV>
+        <diV id="wt">OfficeTimer</diV>
         <diV id="ot1"> 
             Out Time 1 : <p id="t1"></p>
         </diV>
