@@ -6,7 +6,7 @@
         <script>
 function GetTime(){
             var d = new Date ();
-           var d1 = new Date ( d );
+           var d1 = new Date ( d);
           
            document.getElementById("t").innerHTML="Day = "+d.getDate()+"     Time = "+(12<d.getHours() ? d.getHours()-12 +":"+d.getMinutes()+"PM" :"0"+d.getHours()+":"+d.getMinutes()+"AM");
            d1.setHours ( d1.getHours() + 9);
