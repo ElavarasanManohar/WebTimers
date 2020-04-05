@@ -22,12 +22,94 @@ function GetTime(){
 
 
         $(document).ready(function(){
+            var c=0;
+            $("#sc").click(function(){
+
+               
+                if(c==0){
+
+                    $("#d").css("display", "none");
+                    $("#n").css("display", "block");
+                     $("#n").animate(
+    { deg: 180 },
+    {
+      duration: 300,
+      step: function(now) {
+        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+      }
+    }
+  );
+  setTimeout(() => {
+                        $("#n").css("deg", "0");
+                        $("#d").css("deg", "-180");
+        
+    }, 400);
+                    $("#dn").animate({"position": "absolute","right":"0%"},400,'swing');
+                    setTimeout(() => {
+                        $("#dn").css("background-color","#110f12");
+        
+    }, 100);
+                    // $("#dn").css("background-color","#110f12");
+                    $("#b").css("background-color","#1579ff");
+                    $("#st").css("background-color","#110f12");
+                    $("#in").css("color","#00e7b5");
+                    $("#it1").css({"border": "2px solid #1579ff","background-color": "#110f12"});
+                    $("#ot1").css({"border": "2px solid #1579ff","background-color": "#110f12"});
+                    $("#ot2").css({"border": "2px solid #1579ff","background-color": "#110f12"});
+                    $("#ot3").css({"border": "2px solid #1579ff","background-color": "#110f12"});
+                    $("#wt").css({"border": "2px solid #110f12","background-color": "#110f12","color": "#00e7b5"});
+                    c=1;
+                    // *Night mode code
+
+                }
+                else
+                {
+                    $("#n").css("display", "none");
+        $("#d").css("display", "block");
+                    $("#d").animate(
+    { deg: 0 },
+    {
+      duration: 200,
+      step: function(now) {
+        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+      }
+    }
+  );
+                    $("#dn").animate({"position": "absolute","right":"50%","background-color":"rgb(8, 117, 219)"},300,'swing');
+                    setTimeout(() => {
+                        $("#dn").css("background-color","rgb(8, 117, 219)");
+        
+    }, 100);
+    setTimeout(() => {
+                        $("#d").css("deg", "0");
+        
+    }, 400);
+    
+                    $("#b").css("background-color","rgb(8, 117, 219)");
+                    $("#st").css("background-color","white");
+                    $("#in").css("color","rgb(8, 117, 219)");
+                    $("#it1").css({"border": "2px solid #1579ff","background-color": "rgb(8, 117, 219)"});
+                    $("#ot1").css({"border": "2px solid #1579ff","background-color": "rgb(8, 117, 219)"});
+                    $("#ot2").css({"border": "2px solid #1579ff","background-color": "rgb(8, 117, 219)"});
+                    $("#ot3").css({"border": "2px solid #1579ff","background-color": "rgb(8, 117, 219)"});
+                    $("#wt").css({"border": "2px solid #1579ff","background-color": "rgb(8, 117, 219)","color": "white"});
+                    c=0;
+                    // *Normal mode code
+                }
+            });
   $("#st").click(function(){
       $("#in").hide() ;
     $(this).animate({"position": "relative","top":"80%","right":"100%","height":"0%","width":"64%","border-radius": "100%"});
-    $(this).animate({"position": "relative","top":"0%","right":"0%","height":"99%","width":"99%","border-radius": "0%","border" : "0px"},"slow");
+    $(this).animate({"position": "relative","top":"-5%","right":"0%","height":"99%","width":"99%","border-radius": "0%","border" : "0px"},"slow");
     setTimeout(() => {
-        $("#b").css("background-color","white");
+        if(c==1){
+        $("#b").css("background-color","#110f12");
+        console.log(c);
+        }
+        else if(c==0){
+            $("#b").css("background-color","white");
+            console.log(c);
+        }
     }, 1000);
     
     setTimeout(() => {
@@ -75,14 +157,14 @@ function GetTime(){
                 background-color:white;
                 border: 2px solid  rgb(8, 117, 219) ;
                  color:black;
-                font-size: 40px;
+                font-size: 15vw;
                 text-align: center;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                 }
                 #in{
                     position: absolute;
-                    top : 20%;
-                    right: 45%;
+                    top : 2%;
+                    right: 32%;
                 }
             #b{
                 background-color:rgb(8, 117, 219);  
@@ -142,9 +224,58 @@ function GetTime(){
                 background-color:rgb(8, 117, 219);
                 border-radius: 5px;
             }
+            #sc{
+                position: relative;
+                height:0%;
+                width:20%;
+                top : 15%;
+                right:-70%;
+                background-color:white;
+                border: 2px solid  rgb(178, 190, 201);
+                color :#00e7b5;
+                text-align: center;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                padding-bottom: 10%;
+                border-radius: 100px;
+            }
+            #dn{
+                position: absolute;
+                width: 50%;
+	            height:0%;
+                top : 0%;
+                right:50%;
+                background-color:rgb(8, 117, 219);
+                padding-bottom: 50%;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            #d{
+                position: absolute;
+                top :-80%;
+                right:25%;
+                font-size: 7vw;
+                color:white;
+                text-align: center;
+            }
+            #n{
+                position: absolute;
+                top :-80%;
+                right:25%;
+                font-size: 7vw;
+                display: none;
+                text-align: center;
+            }
+
         </style>
     </head>
     <body id="b">
+        <div id="sc">
+            <div id="dn">
+                <p id="d">D</p>
+                <p id="n">N</p>
+            </div>
+        </div>
+        
         <div id="st" onClick="GetTime()">
           <p id="in">IN</p>
            
